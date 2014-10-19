@@ -42,7 +42,7 @@ block scripts
         if (data.valid){
           $('#js-invalid-account').addClass('hidden');
           $('#formblock').addClass('hidden');
-          var linkFirstPart = window.location.origin + '/calendar/get?login=';
+          var linkFirstPart = window.location.origin + '/get?login=';
           $('#genlink').attr('href', linkFirstPart + encodeURIComponent(data.encrypted)).text(linkFirstPart  + data.encrypted );
           $('#js-generated').removeClass('hidden');
         } else {
