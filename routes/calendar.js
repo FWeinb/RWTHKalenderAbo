@@ -9,6 +9,10 @@ var getCalendar = require('../lib/getCalendar');
 var addDescription = require('../lib/addDescription');
 
 
+router.get('/', function(req,res){
+  res.render('create');
+});
+
 router.get('/get', function(req, res, next) {
   if (!!req.query.login) {
 
@@ -33,10 +37,6 @@ router.get('/get', function(req, res, next) {
   }
 
   next(new Error('Parameter fehlt'));
-});
-
-router.get('/create', function(req, res){
-  res.render('create');
 });
 
 router.post('/generate', function(req, res){
