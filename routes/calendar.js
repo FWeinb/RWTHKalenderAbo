@@ -31,6 +31,8 @@ router.get('/get', function(req, res, next) {
       next(new Error('Fehler beim Entschlüsseln.'));
     }
   }
+
+  next(new Error('Parameter fehlt'));
 });
 
 router.get('/create', function(req, res){

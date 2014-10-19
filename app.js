@@ -14,8 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./routes/index'));
-app.use('/calendar', require('./routes/calendar'));
+app.use('/', require('./routes/calendar'));
 
 
 // catch 404 and forward to error handler

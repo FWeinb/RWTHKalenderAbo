@@ -1,15 +1,15 @@
 extends layout
 
 block docs-header
-  h1 Abolink erzeugen:
+  h1 Abolink Erzeugen
 block content
   .row
-   .col-md-8.col-md-offset-2
+   .col-md-10.col-md-offset-1
     .bs-callout.bs-callout-danger#formblock
       h4 Achtung
       p
-        | Der Benutzername und das Passwort werden einmalig unverschlüsselt übertragen.
-        | Im generierten Link sind die Daten verschlüsselt gepeichert und werden sicher übertragen werden.
+        | Der Benutzername und das Passwort werden <strong>einmalig</strong> unverschlüsselt übertragen.
+        | Im generierten Link sind die Daten verschlüsselt gepeichert und werden sicher übertragen.
         | Es ist zu empfehlen die Erstellung dieses Linkes in einem privaten Netzwerk durchzuführen.
       .well.hidden#js-invalid-account
          p Benutzername oder Passwort falsch
@@ -25,7 +25,7 @@ block content
               input.input-xlarge(name='password', type='password', required='')
           .control-group
             .controls
-              input.btn.btn-success.voffset2.pull-right(type='submit', value="Erzeugen")
+              input.btn.btn-success.voffset2.pull-left(type='submit', value="Erzeugen")
     .bs-callout-bs-callout-info.hidden#js-generated
       h4 Der Erzeugte Link
       .well
