@@ -1,10 +1,6 @@
 var express = require('express');
 
-var concat = require('concat-stream');
-var resumer = require('resumer');
-
 var crypto = require('../lib/crypto');
-
 
 var router = express.Router();
 
