@@ -34,9 +34,9 @@ router.get('/get', function(req, res, next) {
     } else {
       next(new Error('Fehler beim Entschlüsseln.'));
     }
+  } else {
+    next(new Error('Parameter fehlt'));
   }
-
-  next(new Error('Parameter fehlt'));
 });
 
 router.post('/generate', function(req, res){
