@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    header#top.navbar.navbar-static-top.bs-docs-nav(role='banner')
+        .container
+            .navbar-header
+              a.navbar-brand(href='../') RWTH Kalender Abo
+            nav.collapse.navbar-collapse.bs-navbar-collapse(role='navigation')
+              ul.nav.navbar-nav
+                li
+                  a(href='/calendar/create') Link Erstellen
+                li
+                  a(href='/about') Über
+     #content.bs-docs-header
+        .container
+          block docs-header
+
+    div.container.bs-docs-container
+      div.row
+        div.col-12
+          block content
+  block scripts

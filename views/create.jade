@@ -1,0 +1,51 @@
+extends layout
+
+block docs-header
+  h1 Abolink erzeugen:
+block content
+  .row
+   .col-md-8.col-md-offset-2
+    .bs-callout.bs-callout-danger#formblock
+      h4 Achtung
+      p
+        | Der Benutzername und das Passwort werden einmalig unverschlüsselt übertragen.
+        | Im generierten Link sind die Daten verschlüsselt und können somit sicher übertragen werden.
+        | Es ist zu empfehlen diesen Link in einem privaten Netzwerk durchzuführen.
+      .well.hidden#js-invalid-account
+         p Benutzername oder Passwort falsch
+      form.form-horizontal.center-block(id='gen', action='generate', method='post')
+        fieldset
+          .control-group
+            label.control-label(for='username') Benutzername
+            .controls
+              input.input-xlarge(name='username', type='text', required='')
+          .control-group
+            label.control-label(for='password') Passwort
+            .controls
+              input.input-xlarge(name='password', type='password', required='')
+          .control-group
+            .controls
+              input.btn.btn-success.voffset2.pull-right(type='submit', value="Erzeugen")
+    .bs-callout-bs-callout-info.hidden#js-generated
+      h4 Der Erzeugte Link
+      .well
+        a#genlink
+block scripts
+  script(src="/javascript/jquery-2.1.1.min.js")
+  script.
+    $('#gen').on('submit', function(e){
+      e.preventDefault();
+      $.post('generate', $('#gen').serialize() )
+      .then(function(data){
+        if (data.valid){
+          $('#js-invalid-account').addClass('hidden');
+          $('#formblock').addClass('hidden');
+          var linkFirstPart = window.location.origin + '/calendar/get?login=';
+          $('#genlink').attr('href', linkFirstPart + encodeURIComponent(data.encrypted)).text(linkFirstPart  + data.encrypted );
+          $('#js-generated').removeClass('hidden');
+        } else {
+          $('#js-invalid-account').removeClass('hidden');
+        }
+      });
+
+    });
