@@ -9,10 +9,10 @@ Sync with CampusOffice
 npm start
 ```
 
-> Before you run this server please set enviroment variable `rwthSecretKey` to a long random string.
+> Before you run this server please set the enviroment variable `rwthSecretKey` to a long random string and keep it safe.
 
 
-## Set `rwthSecretKey``
+## Set `rwthSecretKey`
 
 ```shell
 export rwthSecretKey='PASSPHRASE'
